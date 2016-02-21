@@ -59,7 +59,6 @@ public class Bot {
         data.setDolarSatis(fiyatListeHash.get("dolarSatis"));
         data.setEuroAlis(fiyatListeHash.get("euroAlis"));
         data.setEuroSatis(fiyatListeHash.get("euroSatis"));
-        data.setTime(new Timestamp(System.currentTimeMillis()));
 
         Crud crud = new Crud();
         crud.addData(data);

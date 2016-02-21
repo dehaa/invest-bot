@@ -7,7 +7,7 @@ import java.sql.Timestamp;
  * Created by sefa on 15.01.2016.
  */
 @Entity
-@Table(name = "data", schema = "enpara", catalog = "")
+@Table(name = "enpara_data", schema = "dehaa_invest", catalog = "")
 public class DataEntity {
     private int dataId;
     private double altinGramAlis;
@@ -18,7 +18,6 @@ public class DataEntity {
     private double dolarSatis;
     private double euroAlis;
     private double euroSatis;
-    private Timestamp time;
 
     @Id
     @Column(name = "dataId")
@@ -110,16 +109,6 @@ public class DataEntity {
         this.euroSatis = euroSatis;
     }
 
-    @Basic
-    @Column(name = "time")
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -136,8 +125,6 @@ public class DataEntity {
         if (Double.compare(that.dolarSatis, dolarSatis) != 0) return false;
         if (Double.compare(that.euroAlis, euroAlis) != 0) return false;
         if (Double.compare(that.euroSatis, euroSatis) != 0) return false;
-        if (time != null ? !time.equals(that.time) : that.time != null) return false;
-
         return true;
     }
 
@@ -162,7 +149,6 @@ public class DataEntity {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(euroSatis);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (time != null ? time.hashCode() : 0);
         return result;
     }
 }
